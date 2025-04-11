@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion de stock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 min-h-screen py-10 px-4">
+<div class="max-w-6xl mx-auto bg-white p-8 rounded shadow-md">
+    <!-- Formulaire -->
+    <form id="stock-form" class="grid grid-cols-2 gap-6 mb-10">
+        <!-- Colonne gauche -->
+        <div class="space-y-4">
+            <input type="text" placeholder="Libellé" class="w-full border rounded px-3 py-2" required>
+
+            <div class="flex gap-2">
+                <input type="text" placeholder="Catégorie" class="w-full border rounded px-3 py-2" required>
+                <button type="button" class="bg-gray-300 px-3 py-2 rounded">+</button>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="number" placeholder="Quantité" class="w-1/2 border rounded px-3 py-2" required>
+                <select class="w-1/2 border rounded px-3 py-2" required>
+                    <option value="">Unité</option>
+                </select>
+                <button type="button" class="bg-gray-300 px-3 py-2 rounded">+</button>
+            </div>
+
+            <input type="number" placeholder="Prix" class="w-full border rounded px-3 py-2" required>
+
+            <button type="submit" class="w-full bg-black text-white py-2 rounded">VALIDER</button>
+        </div>
+
+        <!-- Colonne droite -->
+        <div class="space-y-4">
+            <div class="flex gap-2">
+                <select class="w-full border rounded px-3 py-2" required>
+                    <option value="">Fournisseur</option>
+                </select>
+                <button type="button" class="bg-gray-300 px-3 py-2 rounded">+</button>
+            </div>
+
+            <div class="flex flex-col items-center border-2 border-dashed border-gray-400 h-40 justify-center rounded">
+                <span class="text-gray-500">📸 Image</span>
+            </div>
+
+            <p class="text-gray-600 text-sm">Référence : <span class="font-medium">Baz-Tissu-0001</span></p>
+        </div>
+    </form>
+
+    <!-- Tableau -->
+    <table class="w-full table-auto border-collapse">
+        <thead>
+            <tr class="bg-black text-white">
+                <th class="px-4 py-2">Libellé</th>
+                <th class="px-4 py-2">Catégorie</th>
+                <th class="px-4 py-2">Quantité</th>
+                <th class="px-4 py-2">Prix</th>
+                <th class="px-4 py-2">Fournisseur</th>
+                <th class="px-4 py-2">Unité</th>
+                <th class="px-4 py-2">Action</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+                <td class="px-4 py-2">Bazin</td>
+                <td class="px-4 py-2">Tissu</td>
+                <td class="px-4 py-2">100</td>
+                <td class="px-4 py-2">5000</td>
+                <td class="px-4 py-2">Mamadou Diouf</td>
+                <td class="px-4 py-2">mètre</td>
+                <td class="px-4 py-2 flex gap-2 justify-center">
+                    <button class="text-blue-600 hover:underline">✏️</button>
+                    <button class="text-red-600 hover:underline">🗑️</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

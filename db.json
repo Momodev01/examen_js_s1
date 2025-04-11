@@ -1,0 +1,69 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123"
+    }
+  ],
+  "produits": [
+    {
+      "id": 1,
+      "libelle": "Bazin",
+      "categoryId": 1,
+      "quantity": 100,
+      "uniteId": 1,
+      "prix": 5000,
+      "fournisseurId": 2,
+      "image": "bazin.jpg",
+      "reference": "Baz-Tissu-0001"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "libelle": "Tissu",
+      "uniteId": 1
+    },
+    {
+      "id": 2,
+      "libelle": "Bazin",
+      "uniteId": 2
+    },
+    {
+      "id": 3,
+      "libelle": "Wax",
+      "uniteId": 3
+    }
+  ],
+  "unites": [
+    {
+      "id": 1,
+      "libelle": "mètre",
+      "etat": 1
+    }
+  ],
+  "fournisseurs": [
+    {
+      "id": 1,
+      "prenom": "Amadou",
+      "nom": "BA",
+      "telephone": "771234567",
+      "adresse": "Dieuppeul"
+    },
+    {
+      "id": 2,
+      "prenom": "Rokhaya",
+      "nom": "Touré",
+      "telephone": "771234567",
+      "adresse": "HLM"
+    },
+    {
+      "id": 3,
+      "prenom": "Madieume",
+      "nom": "Diop",
+      "telephone": "771234567",
+      "adresse": "Médina"
+    }
+  ]
+}
