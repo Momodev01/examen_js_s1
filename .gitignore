@@ -18,3 +18,5 @@ build/
 
 # .env si tu veux stocker des variables sensibles
 .env
+
+.idea/

@@ -8,25 +8,27 @@
 <body class="bg-blue-50 min-h-screen py-10 px-4">
 <div class="max-w-6xl mx-auto bg-white p-8 rounded shadow-md">
     <!-- Formulaire -->
-    <form id="stock-form" class="grid grid-cols-2 gap-6 mb-10">
+    <form id="produit-form" class="grid grid-cols-2 gap-6 mb-10">
         <!-- Colonne gauche -->
         <div class="space-y-4">
-            <input type="text" placeholder="Libellé" class="w-full border rounded px-3 py-2" required>
+            <input id="libelle" type="text" placeholder="Libellé" class="w-full border rounded px-3 py-2" required>
 
             <div class="flex gap-2">
-                <input type="text" placeholder="Catégorie" class="w-full border rounded px-3 py-2" required>
+                <select id="categorie" class="w-full border rounded px-3 py-2" required>
+                    <option value="">Catégorie</option>
+                </select>
                 <button type="button" class="bg-gray-300 px-3 py-2 rounded">+</button>
             </div>
 
             <div class="flex gap-2">
-                <input type="number" placeholder="Quantité" class="w-1/2 border rounded px-3 py-2" required>
-                <select class="w-1/2 border rounded px-3 py-2" required>
+                <input id="qte" type="number" placeholder="Quantité" class="w-1/2 border rounded px-3 py-2" required>
+                <select id="unity" class="w-1/2 border rounded px-3 py-2" required>
                     <option value="">Unité</option>
                 </select>
                 <button type="button" class="bg-gray-300 px-3 py-2 rounded">+</button>
             </div>
 
-            <input type="number" placeholder="Prix" class="w-full border rounded px-3 py-2" required>
+            <input id="prix" type="number" placeholder="Prix" class="w-full border rounded px-3 py-2" required>
 
             <button type="submit" class="w-full bg-black text-white py-2 rounded">VALIDER</button>
         </div>
@@ -34,17 +36,24 @@
         <!-- Colonne droite -->
         <div class="space-y-4">
             <div class="flex gap-2">
-                <select class="w-full border rounded px-3 py-2" required>
+                <select id="fournisseur" class="w-full border rounded px-3 py-2" required>
                     <option value="">Fournisseur</option>
                 </select>
                 <button type="button" class="bg-gray-300 px-3 py-2 rounded">+</button>
             </div>
-
-            <div class="flex flex-col items-center border-2 border-dashed border-gray-400 h-40 justify-center rounded">
-                <span class="text-gray-500">📸 Image</span>
+            <div class="flex gap-2 ">
+                <div class="w-1/2 flex flex-col items-center border-2 border-dashed border-gray-400 h-40 justify-center rounded relative">
+                    <input type="file" id="image" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer"  />
+                    <img id="selected-image" class="hidden w-32 h-32 object-cover rounded mt-2 mx-auto" alt="Aperçu de l’image" />
+                    <span id="place-holder" class="text-gray-500 pointer-events-none">📸 Image</span>
+                </div>
+                <div class="h-40 flex items-center">
+                    <p class="text-gray-600 text-sm text-center">Référence : <span id="ref-produit" class="font-medium"></span></p>
+                </div>
             </div>
-
-            <p class="text-gray-600 text-sm">Référence : <span class="font-medium">Baz-Tissu-0001</span></p>
+            <div class="h-8 flex items-center">
+                <p id="notif" class="text-lg hidden"></p>
+            </div>
         </div>
     </form>
 
@@ -55,27 +64,19 @@
                 <th class="px-4 py-2">Libellé</th>
                 <th class="px-4 py-2">Catégorie</th>
                 <th class="px-4 py-2">Quantité</th>
+                <th class="px-4 py-2">Unité</th>
                 <th class="px-4 py-2">Prix</th>
                 <th class="px-4 py-2">Fournisseur</th>
-                <th class="px-4 py-2">Unité</th>
                 <th class="px-4 py-2">Action</th>
             </tr>
         </thead>
-        <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-                <td class="px-4 py-2">Bazin</td>
-                <td class="px-4 py-2">Tissu</td>
-                <td class="px-4 py-2">100</td>
-                <td class="px-4 py-2">5000</td>
-                <td class="px-4 py-2">Mamadou Diouf</td>
-                <td class="px-4 py-2">mètre</td>
-                <td class="px-4 py-2 flex gap-2 justify-center">
-                    <button class="text-blue-600 hover:underline">✏️</button>
-                    <button class="text-red-600 hover:underline">🗑️</button>
-                </td>
-            </tr>
+        <tbody id="produits" class="bg-white divide-y divide-gray-200 text-center">
+
         </tbody>
     </table>
 </div>
+
+<script src="../services/api.js"></script>
+<script src="../main.js"></script>
 </body>
 </html>

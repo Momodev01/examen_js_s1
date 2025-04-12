@@ -11,8 +11,8 @@
       "id": 1,
       "libelle": "Bazin",
       "categoryId": 1,
-      "quantity": 100,
-      "uniteId": 1,
+      "quantity": 5,
+      "unityId": 1,
       "prix": 5000,
       "fournisseurId": 2,
       "image": "bazin.jpg",
@@ -27,7 +27,7 @@
     },
     {
       "id": 2,
-      "libelle": "Bazin",
+      "libelle": "Thioub",
       "uniteId": 2
     },
     {
@@ -39,8 +39,11 @@
   "unites": [
     {
       "id": 1,
-      "libelle": "mètre",
-      "etat": 1
+      "libelle": "mètre"
+    },
+    {
+      "id": 2,
+      "libelle": "yard"
     }
   ],
   "fournisseurs": [
