@@ -1,4 +1,6 @@
 
+import {closePopupBtn, fermeturePopup, openPopup} from "./utils/popupUtils.js";
+
 // Uploading et affichage de l'image
 const inputImage = document.getElementById('image');
 const selectedImage = document.getElementById('selected-image');
@@ -25,7 +27,7 @@ inputImage.addEventListener('change', function () {
 });
 
 
-// Générer la Référence à partir du Libellé et de la Catégorie saisis
+// Générer la Référence à partir du Libellé saisi et de la Catégorie selectionnée
 const libelleInput = document.getElementById('libelle');
 const selectCategorie = document.getElementById('categorie');
 const refSpan = document.getElementById('ref-produit');
@@ -35,14 +37,27 @@ function genererReference() {
     const category = selectCategorie.options[selectCategorie.selectedIndex].text;
 
     if (libelle && category) {
-        const lib = libelle.substring(0, 3); // ex: Baz
-        const code = String(Math.floor(1000 + Math.random() * 9000)); // ex: 3456
+        const lib = libelle.substring(0, 3);
+        const code = String(Math.floor(1000 + Math.random() * 9000));
 
         refSpan.textContent = `${lib}-${category}-${code}`;
     } else {
         refSpan.textContent = '';
     }
 }
-
 libelleInput.addEventListener('input', genererReference);
 selectCategorie.addEventListener('change', genererReference);
+
+
+openPopup('ouvrir-fournisseur', 'popup-fournisseur');
+fermeturePopup('popup-fournisseur', 'popup-content-fournisseur');
+closePopupBtn('annuler-fournisseur', 'popup-fournisseur')
+
+openPopup('ouvrir-categorie', 'popup-categorie');
+fermeturePopup('popup-categorie', 'popup-content-categorie');
+closePopupBtn('annuler-categorie', 'popup-categorie');
+
+openPopup('ouvrir-unite', 'popup-unite');
+fermeturePopup('popup-unite', 'popup-content-unite');
+closePopupBtn('annuler-unite', 'popup-unite');
+

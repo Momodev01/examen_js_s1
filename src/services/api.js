@@ -34,7 +34,7 @@ async function afficherProduits() {
           <td class="px-4 py-2">${fournisseur ? `${fournisseur.prenom} ${fournisseur.nom}` : ''}</td>
           <td class="p-2 space-x-2">
             <button id="edit" class="text-blue-500 hover:text-blue-700">✏️</button>
-            <button id="delete" class="text-red-500 hover:text-red-700">🗑️</button>
+            <button id="delete" class="text-red-500 hover:text-red-700" onclick="supprimerProduit(${produit.id})">🗑️</button>
           </td>
         `;
 
@@ -88,9 +88,14 @@ form.addEventListener('submit', async function (e) {
     const reader = new FileReader();
 
     reader.onload = async function () {
+        const produits = await fetchData('produits');
+        const dernierId = produits.length > 0 ? Math.max(...produits.map(p => parseInt(p.id))) : 0;
+        const nouvelId = dernierId + 1;
+
         const base64Image = reader.result;
 
         const newProduit = {
+            id: nouvelId,
             libelle: document.getElementById('libelle').value,
             categoryId: parseInt(document.getElementById('categorie').value),
             quantity: parseInt(document.getElementById('qte').value),
@@ -128,7 +133,6 @@ form.addEventListener('submit', async function (e) {
 
     reader.readAsDataURL(file);
 })
-
 
 // Appel initial
 champsSelect();

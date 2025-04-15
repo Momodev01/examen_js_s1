@@ -4,13 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "json-server --watch db.json --port 3000"
+    "serve": "json-server --watch db.json --port 3000",
+    "build:css": "tailwindcss -i src/css/styles.css -o dist/styles.css --minify"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "json-server": "^1.0.0-beta.3"
-  }
+    "@tailwindcss/cli": "^4.1.4",
+    "json-server": "^1.0.0-beta.3",
+    "tailwindcss": "^4.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Momodev01/examen_js_s1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Momodev01/examen_js_s1/issues"
+  },
+  "homepage": "https://github.com/Momodev01/examen_js_s1#readme"
 }
